@@ -1,5 +1,6 @@
-const { fs } = require("fs");
+const fs = require('fs');
 const Uploadfile = require("../middleware/upload");
+
 
 
 
@@ -26,7 +27,7 @@ const upload = (async (req, res) => {
 
 
 const getFile = (req, res) => {
-    const directoryPath = __basedir + "/resources/static/assets/upload/";
+    const directoryPath = __dirname + "/resources/static/assets/uploads/";
 
     fs.readdir(directoryPath, function (err, files) {
         if (err) {
@@ -50,7 +51,7 @@ const getFile = (req, res) => {
 
 const download = (req, res) => {
     const filename = req.params.name;
-    const directoryPath = __basedir + "/resources/static/assets/upload/";
+    const directoryPath = __dirname + "/resources/static/assets/uploads/";
 
     res.download(directoryPath + filename, filename, (err) => {
         if (err) {
@@ -61,4 +62,4 @@ const download = (req, res) => {
     });
 };
 
-module.exports = { upload,download,getFile,};
+module.exports = {upload,download,getFile,};
