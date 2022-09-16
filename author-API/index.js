@@ -14,15 +14,13 @@ app.use(express.json());
 
 app.use(express.urlencoded({ extended: true }));
 
-app.get('/', (res,req)=>{
-    res.json({
-        message: "welcome to my application !!!!!!"
-    });
+app.get('/', (res, req) => {
+    res.json({ message: "welcome to my application !!!!!!" });
 });
 
-require("./author-API/routes/author.routers.js")(app);
+require("../author-API/routes/author.routers.js")(app);
 
 const PORT = process.env.PORT || 8011;
 app.listen(PORT, () => {
     console.log(`server is running on ${PORT}....`);
-})
+});
